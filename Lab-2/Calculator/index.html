@@ -13,32 +13,40 @@
     <div class="calculator">
         <div class="window">
             <p>
-                <span>Here is a div inside div</span>
+                <span id="prev_exp"></span>
                 <br />
                 <br />
-                <span>Here is a div inside div</span>
+                <strong>
+                    <span id="current_exp"></span>
+                </strong>
             </p>
         </div>
         <div class="buttons">
-            <button> ^ </button>
-            <button> / </button>
-            <button> * </button>
-            <button> - </button>
-            <button> 7 </button>
-            <button> 8 </button>
-            <button> 9 </button>
-            <button class="extended-vertical"> + </button>
-            <button> 4 </button>
-            <button> 5 </button>
-            <button> 6 </button>
-            <button> 1 </button>
-            <button> 2 </button>
-            <button> 3 </button>
-            <button style="background-color: tomato; color: black; font-weight: 700; border-radius: 15%;"
-                class="extended-vertical"> =
-            </button>
-            <button class="extended-horizontal"> 0 </button>
-            <button> . </button>
+            <div class="history_buttons">
+                <button class="prev_button">Previous</button>
+                <button class="reset_button">Reset</button>
+                <button class="next_button">Next</button>
+            </div>
+            <div class="num_buttons">
+                <button value="/" onclick="add_to_exp(this)"> / </button>
+                <button value="*" onclick="add_to_exp(this)"> * </button>
+                <button onclick="all_clear()" class="del_button"> AC </button>
+                <button onclick="delete_character()" class="del_button"> DEL </button>
+                <button value="7" onclick="add_to_exp(this)"> 7 </button>
+                <button value="8" onclick="add_to_exp(this)"> 8 </button>
+                <button value="9" onclick="add_to_exp(this)"> 9 </button>
+                <button value="-" onclick="add_to_exp(this)"> - </button>
+                <button value="4" onclick="add_to_exp(this)"> 4 </button>
+                <button value="5" onclick="add_to_exp(this)"> 5 </button>
+                <button value="6" onclick="add_to_exp(this)"> 6 </button>
+                <button value="+" onclick="add_to_exp(this)"> + </button>
+                <button value="1" onclick="add_to_exp(this)"> 1 </button>
+                <button value="2" onclick="add_to_exp(this)"> 2 </button>
+                <button value="3" onclick="add_to_exp(this)"> 3 </button>
+                <button onclick="evaluate_exp()" class="extended-vertical equal_button"> = </button>
+                <button value="0" onclick="add_to_exp(this)" class="extended-horizontal"> 0 </button>
+                <button value="." onclick="add_to_exp(this)"> . </button>
+            </div>
         </div>
     </div>
 </body>
