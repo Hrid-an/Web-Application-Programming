@@ -1,0 +1,234 @@
+/* ── CSS Variables (set by JS) ── */
+:root {
+    --bg: #f0f4ff;
+    --text: #111111;
+    --card: #003296;
+    --accent: #ff6347;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: sans-serif;
+    padding: 40px 20px;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+.app {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ── Header ── */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.app_title {
+    font-size: 30px;
+    color: var(--text);
+    transition: color 0.4s;
+}
+
+.app_subtitle {
+    font-size: 14px;
+    color: var(--text);
+    opacity: 0.65;
+    transition: color 0.4s;
+}
+
+/* ── Card ── */
+
+.card {
+    background-color: var(--card);
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: background-color 0.4s;
+}
+
+.card_title {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    opacity: 0.85;
+}
+
+/* ── Preset Grid ── */
+
+.preset_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.preset_button {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    border-radius: 14px;
+    padding: 10px 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.preset_button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.preset_active {
+    border-color: var(--accent) !important;
+    background-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+.preset_dots {
+    display: flex;
+    gap: 4px;
+}
+
+.preset_dots span {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.preset_name {
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* ── Custom Pickers ── */
+
+.color_pickers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.picker_group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.picker_group label {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.picker_group input[type="color"] {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.25);
+    padding: 2px;
+    cursor: pointer;
+    background: none;
+}
+
+/* ── Buttons ── */
+
+.action_button {
+    padding: 11px 20px;
+    border-radius: 12px;
+    border: none;
+    background-color: var(--accent);
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.4s, opacity 0.2s;
+}
+
+.action_button:hover {
+    opacity: 0.85;
+}
+
+.reset_button {
+    padding: 11px 20px;
+    border-radius: 12px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.reset_button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Theme Info Panel ── */
+
+.theme_info_grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 8px 14px;
+}
+
+.info_label {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 13px;
+}
+
+.info_value {
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.color_swatch {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+/* ── Demo Section ── */
+
+.demo_text {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    line-height: 1.6;
+}

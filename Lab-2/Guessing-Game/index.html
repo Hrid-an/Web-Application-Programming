@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="game">
+
+        <div class="header">
+            <h1 class="game_title">Guess the Number</h1>
+            <p class="game_subtitle">A number between 1 and 100</p>
+        </div>
+
+        <div class="score_board">
+            <div class="score_card">
+                <span class="score_label">Score</span>
+                <span class="score_value" id="current_score">100</span>
+            </div>
+            <div class="score_card">
+                <span class="score_label">Best</span>
+                <span class="score_value" id="best_score">—</span>
+            </div>
+            <div class="score_card">
+                <span class="score_label">Attempts</span>
+                <span class="score_value" id="attempt_count">0</span>
+            </div>
+        </div>
+
+        <div id="feedback_msg" class="feedback_msg">Make your first guess!</div>
+
+        <div class="input_section">
+            <input type="number" id="guess_input" min="1" max="100" placeholder="Enter guess (1–100)" />
+            <button onclick="submit_guess()" class="guess_button">Guess</button>
+        </div>
+
+        <div id="error_msg" class="error_msg"></div>
+
+        <button onclick="new_game()" class="reset_button">New Game</button>
+
+        <div id="history_section" class="history_section">
+            <p class="history_title">Guess History</p>
+            <div id="history_list" class="history_list"></div>
+        </div>
+
+    </div>
+</body>
+
+</html>

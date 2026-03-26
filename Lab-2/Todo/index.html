@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="todo_app">
+
+        <div class="header">
+            <h1 class="app_title">To-Do List</h1>
+            <p class="task_count">
+                <span id="completed_count">0</span> of <span id="total_count">0</span> tasks completed
+            </p>
+        </div>
+
+        <div class="input_section">
+            <input type="text" id="task_input" placeholder="Add a new task..." />
+            <button onclick="add_task()" class="add_button">Add</button>
+        </div>
+
+        <div id="error_msg" class="error_msg"></div>
+
+        <div class="filter_buttons">
+            <button onclick="set_filter('all')" class="filter_button active" id="filter_all">All</button>
+            <button onclick="set_filter('pending')" class="filter_button" id="filter_pending">Pending</button>
+            <button onclick="set_filter('completed')" class="filter_button" id="filter_completed">Completed</button>
+        </div>
+
+        <ul id="task_list">
+            <li id="empty_msg" class="empty_msg">No tasks yet. Add one above!</li>
+        </ul>
+
+    </div>
+</body>
+
+</html>

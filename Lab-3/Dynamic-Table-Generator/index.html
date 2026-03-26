@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="app">
+
+        <div class="header">
+            <h1 class="app_title">Table Generator</h1>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls_card">
+            <div class="input_row">
+                <div class="input_group">
+                    <label for="input_rows">Rows</label>
+                    <input type="number" id="input_rows" min="1" max="20" placeholder="e.g. 4" />
+                </div>
+                <div class="input_group">
+                    <label for="input_cols">Columns</label>
+                    <input type="number" id="input_cols" min="1" max="10" placeholder="e.g. 4" />
+                </div>
+                <button onclick="generate_table()" class="generate_button">Generate</button>
+            </div>
+            <div id="error_msg" class="error_msg"></div>
+        </div>
+
+        <!-- Table Actions -->
+        <div id="action_buttons" class="action_buttons hidden">
+            <button onclick="add_row()" class="add_button">Add Row</button>
+            <button onclick="delete_last_row()" class="del_button">Delete Row</button>
+            <button onclick="toggle_highlight()" class="highlight_button" id="highlight_button">Highlight Even
+                Rows</button>
+        </div>
+
+        <!-- Table Output -->
+        <div id="table_wrap" class="table_wrap hidden">
+            <table id="dynamic_table">
+                <thead id="table_head"></thead>
+                <tbody id="table_body"></tbody>
+            </table>
+        </div>
+
+        <p id="row_count" class="row_count hidden"></p>
+
+    </div>
+</body>
+
+</html>

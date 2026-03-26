@@ -4,11 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator App</title>
+    <title>Clock & Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <!-- A calculator app coming soon -->
+    <div class="app">
+
+        <!-- Digital Clock -->
+        <div class="card clock_card">
+            <p class="card_label">Current Time</p>
+            <div class="clock_display">
+                <span id="clock_hours">00</span>
+                <span class="clock_colon">:</span>
+                <span id="clock_minutes">00</span>
+                <span class="clock_colon">:</span>
+                <span id="clock_seconds">00</span>
+            </div>
+            <p id="clock_date" class="clock_date"></p>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="card timer_card">
+            <p class="card_label">Countdown Timer</p>
+
+            <div class="timer_display">
+                <span id="timer_hours">00</span>
+                <span class="clock_colon">:</span>
+                <span id="timer_minutes">00</span>
+                <span class="clock_colon">:</span>
+                <span id="timer_seconds">00</span>
+            </div>
+
+            <div class="timer_inputs">
+                <div class="input_group">
+                    <label>Hours</label>
+                    <input type="number" id="input_hours" min="0" max="99" placeholder="0" />
+                </div>
+                <div class="input_group">
+                    <label>Minutes</label>
+                    <input type="number" id="input_minutes" min="0" max="59" placeholder="0" />
+                </div>
+                <div class="input_group">
+                    <label>Seconds</label>
+                    <input type="number" id="input_seconds" min="0" max="59" placeholder="0" />
+                </div>
+            </div>
+
+            <div id="error_msg" class="error_msg"></div>
+
+            <div class="timer_buttons">
+                <button onclick="start_timer()" class="start_button" id="start_button">Start</button>
+                <button onclick="pause_timer()" class="pause_button" id="pause_button" disabled>Pause</button>
+                <button onclick="reset_timer()" class="reset_button">Reset</button>
+            </div>
+        </div>
+
+    </div>
 </body>
 
 </html>

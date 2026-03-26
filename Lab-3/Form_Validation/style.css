@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f0f4ff;
+    font-family: sans-serif;
+    padding: 40px 20px;
+}
+
+.app {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* ── Form Card ── */
+
+.form_card {
+    background-color: #003296;
+    border-radius: 30px;
+    padding: 36px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form_title {
+    color: white;
+    font-size: 26px;
+}
+
+.form_subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    margin-top: -12px;
+}
+
+/* ── Field Group ── */
+
+.field_group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field_group label {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.field_group input {
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+}
+
+.field_group input:focus {
+    border-color: aquamarine;
+}
+
+/* ── Valid / Invalid States ── */
+
+.field_valid input {
+    border-color: #4caf50;
+}
+
+.field_invalid input {
+    border-color: tomato;
+}
+
+/* ── Error Messages ── */
+
+.field_error {
+    color: #ffaaaa;
+    font-size: 12px;
+    min-height: 16px;
+    font-weight: 600;
+}
+
+/* ── Password Wrap ── */
+
+.password_wrap {
+    display: flex;
+    gap: 8px;
+}
+
+.password_wrap input {
+    flex: 1;
+}
+
+.toggle_pw_button {
+    padding: 0 16px;
+    border-radius: 12px;
+    border: none;
+    background-color: gray;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.toggle_pw_button:hover {
+    opacity: 0.85;
+}
+
+/* ── Strength Bar ── */
+
+.strength_bar_wrap {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    height: 6px;
+    overflow: hidden;
+}
+
+.strength_bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 20px;
+    background-color: tomato;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.strength_label {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* ── Submit Button ── */
+
+.submit_button {
+    padding: 13px;
+    border-radius: 14px;
+    border: none;
+    background-color: tomato;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.submit_button:hover:not(:disabled) {
+    opacity: 0.85;
+}
+
+.submit_button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+/* ── Success Message ── */
+
+.success_msg {
+    background-color: #e6fff2;
+    color: #007a3d;
+    padding: 14px 16px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ── Hidden ── */
+
+.hidden {
+    display: none !important;
+}

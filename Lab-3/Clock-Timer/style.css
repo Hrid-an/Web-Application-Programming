@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f0f4ff;
+    font-family: sans-serif;
+    padding: 40px 20px;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* ── Cards ── */
+
+.card {
+    background-color: #003296;
+    border-radius: 30px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card_label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ── Clock Display ── */
+
+.clock_display,
+.timer_display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.clock_display span,
+.timer_display span {
+    font-size: 64px;
+    font-weight: 700;
+    color: white;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -2px;
+}
+
+.clock_colon {
+    color: aquamarine !important;
+}
+
+.clock_date {
+    color: aquamarine;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.timer_done span {
+    color: tomato !important;
+}
+
+.timer_inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.input_group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input_group label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.input_group input {
+    padding: 10px 6px;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    width: 100%;
+}
+
+.error_msg {
+    display: none;
+    background-color: #ffe0e0;
+    color: #cc0000;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.timer_buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.start_button,
+.pause_button,
+.reset_button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.start_button {
+    background-color: aquamarine;
+    color: #003296;
+}
+
+.pause_button {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.reset_button {
+    background-color: tomato;
+    color: white;
+}
+
+.start_button:disabled,
+.pause_button:disabled {
+    background-color: gray;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+}
+
+.start_button:hover:not(:disabled),
+.pause_button:hover:not(:disabled),
+.reset_button:hover {
+    opacity: 0.85;
+}

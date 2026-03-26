@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="quiz_app">
+
+        <div id="start_screen" class="screen">
+            <h1 class="quiz_title">Web Dev Quiz</h1>
+            <p class="quiz_desc">Test your knowledge! 10 questions. One chance per question.</p>
+            <button onclick="start_quiz()" class="primary_button">Start Quiz</button>
+        </div>
+
+        <!-- Question Screen -->
+        <div id="question_screen" class="screen hidden">
+            <div class="progress_bar_wrap">
+                <div id="progress_bar" class="progress_bar"></div>
+            </div>
+
+            <div class="meta_row">
+                <span id="question_counter" class="question_counter">Question 1 of 10</span>
+                <span id="live_score" class="live_score">Score: 0</span>
+            </div>
+
+            <p id="question_text" class="question_text"></p>
+
+            <div id="options_list" class="options_list"></div>
+
+            <button id="next_button" onclick="next_question()" class="primary_button hidden">Next</button>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result_screen" class="screen hidden">
+            <h2 class="result_title">Quiz Complete!</h2>
+            <div class="result_score_box">
+                <span class="result_score_label">Your Score</span>
+                <span id="final_score" class="result_score_value">0 / 10</span>
+            </div>
+            <p id="result_msg" class="result_msg"></p>
+            <div id="review_list" class="review_list"></div>
+            <button onclick="restart_quiz()" class="primary_button">Play Again</button>
+        </div>
+
+    </div>
+</body>
+
+</html>

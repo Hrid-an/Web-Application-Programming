@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body id="page_body">
+
+    <div class="app" id="app">
+
+        <div class="header">
+            <h1 class="app_title" id="app_title">Theme Manager</h1>
+            <p class="app_subtitle" id="app_subtitle">Customize your page colors below.</p>
+        </div>
+
+        <!-- Preset Themes -->
+        <div class="card" id="card_presets">
+            <h2 class="card_title" id="title_presets">Preset Themes</h2>
+            <div class="preset_grid" id="preset_grid"></div>
+        </div>
+
+        <!-- Custom Theme -->
+        <div class="card" id="card_custom">
+            <h2 class="card_title" id="title_custom">Custom Theme</h2>
+            <div class="color_pickers">
+
+                <div class="picker_group">
+                    <label id="label_bg">Background</label>
+                    <input type="color" id="pick_bg" />
+                </div>
+                <div class="picker_group">
+                    <label id="label_text">Text</label>
+                    <input type="color" id="pick_text" />
+                </div>
+                <div class="picker_group">
+                    <label id="label_card">Card</label>
+                    <input type="color" id="pick_card" />
+                </div>
+                <div class="picker_group">
+                    <label id="label_accent">Accent</label>
+                    <input type="color" id="pick_accent" />
+                </div>
+
+            </div>
+            <button onclick="apply_custom_theme()" class="action_button" id="apply_button">Apply Custom Theme</button>
+        </div>
+
+        <!-- Current Theme Info -->
+        <div class="card" id="card_info">
+            <h2 class="card_title" id="title_info">Current Theme</h2>
+            <div class="theme_info_grid" id="theme_info_grid"></div>
+            <button onclick="reset_theme()" class="reset_button" id="reset_button">Reset to Default</button>
+        </div>
+
+        <!-- Demo Elements -->
+        <div class="card" id="card_demo">
+            <h2 class="card_title" id="title_demo">Preview</h2>
+            <p class="demo_text" id="demo_text">This is how your text looks with the current theme applied across the
+                page.</p>
+            <button class="action_button" id="demo_button">Demo Button</button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
