@@ -18,8 +18,6 @@ body {
     margin: 0 auto;
 }
 
-/* ── Header ── */
-
 .header {
     background-color: #003296;
     border-radius: 20px;
@@ -30,8 +28,6 @@ body {
     color: white;
     font-size: 26px;
 }
-
-/* ── Controls Card ── */
 
 .controls_card {
     background-color: #003296;
@@ -88,8 +84,6 @@ body {
     opacity: 0.85;
 }
 
-/* ── Error ── */
-
 .error_msg {
     display: none;
     background-color: #ffe0e0;
@@ -98,8 +92,6 @@ body {
     border-radius: 10px;
     font-size: 14px;
 }
-
-/* ── Action Buttons ── */
 
 .action_buttons {
     display: flex;
@@ -138,8 +130,6 @@ body {
 .highlight_button:hover {
     opacity: 0.85;
 }
-
-/* ── Table Wrap ── */
 
 .table_wrap {
     overflow-x: auto;
@@ -182,8 +172,6 @@ body {
     background-color: #f5f8ff;
 }
 
-/* ── Even Row Highlight (applied via JS) ── */
-
 .even_row {
     background-color: #e6fff2 !important;
 }
@@ -192,15 +180,11 @@ body {
     background-color: #d0faeb !important;
 }
 
-/* ── Row Count ── */
-
 .row_count {
     color: gray;
     font-size: 13px;
     text-align: right;
 }
-
-/* ── Hidden ── */
 
 .hidden {
     display: none !important;

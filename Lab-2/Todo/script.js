@@ -98,7 +98,6 @@ const hide_error = () => {
     el.style.display = "none";
 };
 
-// Allow pressing Enter to add task
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("task_input").addEventListener("keydown", (e) => {
         if (e.key === "Enter") add_task();

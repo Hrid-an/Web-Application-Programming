@@ -45,12 +45,12 @@ const submit_guess = () => {
 
     if (guess < secret_number) {
         current_score = Math.max(0, current_score - 10);
-        set_feedback(`Too Low! Try higher. 📉`, "low");
+        set_feedback(`Too Low! Try higher.`, "low");
         guess_history.push({ guess, result: "low" });
 
     } else if (guess > secret_number) {
         current_score = Math.max(0, current_score - 10);
-        set_feedback(`Too High! Try lower. 📈`, "high");
+        set_feedback(`Too High! Try lower.`, "high");
         guess_history.push({ guess, result: "high" });
 
     } else {
@@ -78,14 +78,14 @@ const handle_win = () => {
         document.getElementById("best_score").textContent = best_score;
     }
 
-    set_feedback(`🎉 Correct! The number was ${secret_number}. Score: ${current_score}`, "correct");
+    set_feedback(`Correct! The number was ${secret_number}. Score: ${current_score}`, "correct");
     document.getElementById("current_score").textContent = current_score;
     disable_input();
 };
 
 const handle_loss = () => {
     game_over = true;
-    set_feedback(`💀 Out of score! The number was ${secret_number}.`, "gameover");
+    set_feedback(`Out of score! The number was ${secret_number}.`, "gameover");
     disable_input();
 };
 
@@ -129,7 +129,6 @@ const hide_error = () => {
     el.style.display = "none";
 };
 
-// Allow Enter key to submit guess
 document.addEventListener("DOMContentLoaded", () => {
     new_game();
     document.getElementById("guess_input").addEventListener("keydown", (e) => {

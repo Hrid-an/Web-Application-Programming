@@ -1,18 +1,16 @@
 const products = [
-    { id: 1, name: "Wireless Headphones", price: 59.99, emoji: "🎧" },
-    { id: 2, name: "Mechanical Keyboard", price: 89.99, emoji: "⌨️" },
-    { id: 3, name: "USB-C Hub", price: 34.99, emoji: "🔌" },
-    { id: 4, name: "Webcam HD", price: 49.99, emoji: "📷" },
-    { id: 5, name: "Mouse Pad XL", price: 19.99, emoji: "🖱️" },
-    { id: 6, name: "LED Desk Lamp", price: 29.99, emoji: "💡" },
-    { id: 7, name: "Phone Stand", price: 14.99, emoji: "📱" },
-    { id: 8, name: "Portable SSD 1TB", price: 109.99, emoji: "💾" }
+    { id: 1, name: "Wireless Headphones", price: 59.99 },
+    { id: 2, name: "Mechanical Keyboard", price: 89.99 },
+    { id: 3, name: "USB-C Hub", price: 34.99 },
+    { id: 4, name: "Webcam HD", price: 49.99 },
+    { id: 5, name: "Mouse Pad XL", price: 19.99 },
+    { id: 6, name: "LED Desk Lamp", price: 29.99 },
+    { id: 7, name: "Phone Stand", price: 14.99 },
+    { id: 8, name: "Portable SSD 1TB", price: 109.99 }
 ];
 
 const cart = [];
 const TAX_RATE = 0.13;
-
-// ── Render Products ────────────────────────────────────
 
 const render_products = () => {
     const container = document.getElementById("product_list");
@@ -23,7 +21,6 @@ const render_products = () => {
         card.classList.add("product_card");
 
         card.innerHTML = `
-            <span class="product_emoji">${product.emoji}</span>
             <div class="product_info">
                 <p class="product_name">${product.name}</p>
                 <p class="product_price">$${product.price.toFixed(2)}</p>
@@ -33,8 +30,6 @@ const render_products = () => {
         container.appendChild(card);
     });
 };
-
-// ── Cart Operations ────────────────────────────────────
 
 const add_to_cart = (product_id) => {
     const product = products.find(p => p.id === product_id);
@@ -72,8 +67,6 @@ const clear_cart = () => {
     render_cart();
 };
 
-// ── Render Cart ────────────────────────────────────────
-
 const render_cart = () => {
     const cart_list = document.getElementById("cart_list");
     const empty_msg = document.getElementById("empty_cart_msg");
@@ -96,7 +89,6 @@ const render_cart = () => {
         div.classList.add("cart_item");
 
         div.innerHTML = `
-            <span class="cart_emoji">${item.emoji}</span>
             <div class="cart_info">
                 <p class="cart_name">${item.name}</p>
                 <p class="cart_unit_price">$${item.price.toFixed(2)} each</p>
@@ -116,8 +108,6 @@ const render_cart = () => {
     update_totals();
 };
 
-// ── Totals & Badge ─────────────────────────────────────
-
 const update_totals = () => {
     const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const tax = subtotal * TAX_RATE;
@@ -134,8 +124,6 @@ const update_totals = () => {
 const update_badge = (count) => {
     document.getElementById("cart_item_count").textContent = count;
 };
-
-// ── Init ───────────────────────────────────────────────
 
 document.addEventListener("DOMContentLoaded", () => {
     render_products();

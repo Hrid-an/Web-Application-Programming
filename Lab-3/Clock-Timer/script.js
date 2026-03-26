@@ -16,8 +16,6 @@ setInterval(update_clock, 1000);
 update_clock();
 
 
-// Timer
-
 let timer_interval = null;
 let remaining_seconds = 0;
 let is_running = false;

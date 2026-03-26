@@ -16,21 +16,18 @@
             <h1 class="form_title">Create Account</h1>
             <p class="form_subtitle">Fill in the details below to register.</p>
 
-            <!-- Name -->
             <div class="field_group" id="group_name">
                 <label for="input_name">Full Name</label>
                 <input type="text" id="input_name" placeholder="e.g. Hridan Bhattarai" />
                 <span class="field_error" id="error_name"></span>
             </div>
 
-            <!-- Email -->
             <div class="field_group" id="group_email">
                 <label for="input_email">Email Address</label>
                 <input type="text" id="input_email" placeholder="e.g. hridan@email.com" />
                 <span class="field_error" id="error_email"></span>
             </div>
 
-            <!-- Password -->
             <div class="field_group" id="group_password">
                 <label for="input_password">Password</label>
                 <div class="password_wrap">
@@ -39,25 +36,18 @@
                         id="toggle_pw_button">Show</button>
                 </div>
                 <span class="field_error" id="error_password"></span>
-                <div class="strength_bar_wrap" id="strength_bar_wrap">
-                    <div class="strength_bar" id="strength_bar"></div>
-                </div>
-                <span class="strength_label" id="strength_label"></span>
             </div>
 
-            <!-- Confirm Password -->
             <div class="field_group" id="group_confirm">
                 <label for="input_confirm">Confirm Password</label>
                 <input type="password" id="input_confirm" placeholder="Re-enter your password" />
                 <span class="field_error" id="error_confirm"></span>
             </div>
 
-            <!-- Submit -->
             <button type="button" onclick="submit_form()" class="submit_button">Create Account</button>
 
-            <!-- Success -->
             <div id="success_msg" class="success_msg hidden">
-                ✅ Account created successfully! Welcome aboard.
+                Account created successfully! Welcome aboard.
             </div>
         </div>
 

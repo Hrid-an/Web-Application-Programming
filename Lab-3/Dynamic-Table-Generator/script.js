@@ -1,8 +1,6 @@
 let col_count = 0;
 let highlight_on = false;
 
-// ── Generate ───────────────────────────────────────────
-
 const generate_table = () => {
     const rows = parseInt(document.getElementById("input_rows").value);
     const cols = parseInt(document.getElementById("input_cols").value);
@@ -16,7 +14,6 @@ const generate_table = () => {
 
     document.getElementById("highlight_button").textContent = "Highlight Even Rows";
 
-    // Build header
     const thead = document.getElementById("table_head");
     thead.innerHTML = "";
     const header_row = document.createElement("tr");
@@ -27,7 +24,6 @@ const generate_table = () => {
     }
     thead.appendChild(header_row);
 
-    // Build body
     const tbody = document.getElementById("table_body");
     tbody.innerHTML = "";
     for (let r = 1; r <= rows; r++) {
@@ -36,8 +32,6 @@ const generate_table = () => {
 
     show_table();
 };
-
-// ── Row Helpers ────────────────────────────────────────
 
 const create_row = (row_num) => {
     const tr = document.createElement("tr");
@@ -66,8 +60,6 @@ const delete_last_row = () => {
     update_row_count();
 };
 
-// ── Highlight ──────────────────────────────────────────
-
 const toggle_highlight = () => {
     highlight_on = !highlight_on;
     const btn = document.getElementById("highlight_button");
@@ -85,8 +77,6 @@ const apply_highlight = () => {
         }
     }
 };
-
-// ── UI Helpers ─────────────────────────────────────────
 
 const show_table = () => {
     document.getElementById("table_wrap").classList.remove("hidden");

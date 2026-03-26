@@ -25,16 +25,12 @@ body {
     display: none !important;
 }
 
-/* ── Screens ── */
-
 .screen {
     display: flex;
     flex-direction: column;
     gap: 20px;
     flex: 1;
 }
-
-/* ── Start Screen ── */
 
 .quiz_title {
     color: white;
@@ -48,25 +44,6 @@ body {
     text-align: center;
     line-height: 1.5;
 }
-
-/* ── Progress Bar ── */
-
-.progress_bar_wrap {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    height: 8px;
-    overflow: hidden;
-}
-
-.progress_bar {
-    height: 100%;
-    background-color: aquamarine;
-    border-radius: 20px;
-    width: 0%;
-    transition: width 0.4s ease;
-}
-
-/* ── Meta Row ── */
 
 .meta_row {
     display: flex;
@@ -85,16 +62,12 @@ body {
     font-weight: 700;
 }
 
-/* ── Question ── */
-
 .question_text {
     color: white;
     font-size: 18px;
     font-weight: 600;
     line-height: 1.5;
 }
-
-/* ── Options ── */
 
 .options_list {
     display: flex;
@@ -137,8 +110,6 @@ body {
     font-weight: 700;
 }
 
-/* ── Buttons ── */
-
 .primary_button {
     padding: 12px 24px;
     border-radius: 14px;
@@ -154,8 +125,6 @@ body {
 .primary_button:hover {
     opacity: 0.85;
 }
-
-/* ── Result Screen ── */
 
 .result_title {
     color: white;
@@ -193,8 +162,6 @@ body {
     font-weight: 600;
     text-align: center;
 }
-
-/* ── Review List ── */
 
 .review_list {
     display: flex;

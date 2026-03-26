@@ -1,5 +1,3 @@
-// ── Validation Rules ───────────────────────────────────
-
 const validate_name = (value) => {
     if (!value.trim()) return "Full name is required.";
     if (value.trim().length < 3) return "Name must be at least 3 characters.";
@@ -29,8 +27,6 @@ const validate_confirm = (value, password) => {
     return "";
 };
 
-// ── Show / Clear Field Errors ──────────────────────────
-
 const show_field_error = (field_id, message) => {
     document.getElementById(`error_${field_id}`).textContent = message;
     document.getElementById(`group_${field_id}`).classList.add("field_invalid");
@@ -48,47 +44,6 @@ const reset_field = (field_id) => {
     document.getElementById(`group_${field_id}`).classList.remove("field_invalid", "field_valid");
 };
 
-// ── Password Strength ──────────────────────────────────
-
-const get_strength = (password) => {
-    let score = 0;
-    if (password.length >= 8) score++;
-    if (password.length >= 12) score++;
-    if (/[A-Z]/.test(password)) score++;
-    if (/[0-9]/.test(password)) score++;
-    if (/[!@#$%^&*]/.test(password)) score++;
-    return score;
-};
-
-const update_strength_ui = (password) => {
-    const bar = document.getElementById("strength_bar");
-    const label = document.getElementById("strength_label");
-
-    if (!password) {
-        bar.style.width = "0%";
-        bar.className = "strength_bar";
-        label.textContent = "";
-        return;
-    }
-
-    const score = get_strength(password);
-    const levels = [
-        { label: "Very Weak", color: "#cc0000", width: "20%" },
-        { label: "Weak", color: "tomato", width: "40%" },
-        { label: "Fair", color: "#ffc107", width: "60%" },
-        { label: "Strong", color: "#4caf50", width: "80%" },
-        { label: "Very Strong", color: "#007a3d", width: "100%" }
-    ];
-    const level = levels[Math.min(score - 1, 4)] || levels[0];
-
-    bar.style.width = level.width;
-    bar.style.backgroundColor = level.color;
-    label.textContent = level.label;
-    label.style.color = level.color;
-};
-
-// ── Toggle Password Visibility ─────────────────────────
-
 const toggle_password = () => {
     const input = document.getElementById("input_password");
     const btn = document.getElementById("toggle_pw_button");
@@ -96,8 +51,6 @@ const toggle_password = () => {
     input.type = is_hidden ? "text" : "password";
     btn.textContent = is_hidden ? "Hide" : "Show";
 };
-
-// ── Live Validation (on input) ─────────────────────────
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("input_name").addEventListener("input", () => {
@@ -116,9 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const val = document.getElementById("input_password").value;
         const err = validate_password(val);
         err ? show_field_error("password", err) : clear_field_error("password");
-        update_strength_ui(val);
 
-        // Re-validate confirm if already typed
         const confirm_val = document.getElementById("input_confirm").value;
         if (confirm_val) {
             const confirm_err = validate_confirm(confirm_val, val);
@@ -133,8 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
         err ? show_field_error("confirm", err) : clear_field_error("confirm");
     });
 });
-
-// ── Submit ─────────────────────────────────────────────
 
 const submit_form = () => {
     const name = document.getElementById("input_name").value;

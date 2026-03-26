@@ -18,8 +18,6 @@ body {
     margin: 0 auto;
 }
 
-/* ── Cards ── */
-
 .card {
     background-color: #003296;
     border-radius: 30px;
@@ -36,8 +34,6 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
-/* ── Clock Display ── */
 
 .clock_display,
 .timer_display {

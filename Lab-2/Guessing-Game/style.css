@@ -21,8 +21,6 @@ body {
     padding: 30px;
 }
 
-/* ── Header ── */
-
 .header {
     text-align: center;
 }
@@ -37,8 +35,6 @@ body {
     font-size: 14px;
     margin-top: 4px;
 }
-
-/* ── Score Board ── */
 
 .score_board {
     display: flex;
@@ -69,8 +65,6 @@ body {
     font-weight: 700;
     color: #003296;
 }
-
-/* ── Feedback ── */
 
 .feedback_msg {
     text-align: center;
@@ -104,8 +98,6 @@ body {
     background-color: #2a0000;
     color: #ff6b6b;
 }
-
-/* ── Input Section ── */
 
 .input_section {
     display: flex;
@@ -147,8 +139,6 @@ body {
     opacity: 0.85;
 }
 
-/* ── Error ── */
-
 .error_msg {
     display: none;
     background-color: #ffe0e0;
@@ -157,8 +147,6 @@ body {
     border-radius: 10px;
     font-size: 14px;
 }
-
-/* ── Reset Button ── */
 
 .reset_button {
     padding: 10px;
@@ -174,8 +162,6 @@ body {
 .reset_button:hover {
     opacity: 0.85;
 }
-
-/* ── History ── */
 
 .history_section {
     background-color: rgba(255, 255, 255, 0.1);

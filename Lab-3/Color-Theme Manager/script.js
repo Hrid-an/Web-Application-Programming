@@ -1,11 +1,9 @@
-// ── Theme Definitions ──────────────────────────────────
-
 const default_theme = {
     name: "Default",
     bg: "#f0f4ff",
     text: "#111111",
     card: "#003296",
-    accent: "#ff6347"     // tomato
+    accent: "#ff6347"
 };
 
 const preset_themes = [
@@ -19,10 +17,7 @@ const preset_themes = [
     { name: "Neon", bg: "#0a0a0a", text: "#e0ffe0", card: "#001a00", accent: "#39ff14" }
 ];
 
-// Active theme stored as an object
 let active_theme = { ...default_theme };
-
-// ── Apply Theme ────────────────────────────────────────
 
 const apply_theme = (theme) => {
     active_theme = { ...theme };
@@ -52,16 +47,12 @@ const reset_theme = () => {
     apply_theme(default_theme);
 };
 
-// ── Sync Color Pickers with Active Theme ───────────────
-
 const sync_pickers = () => {
     document.getElementById("pick_bg").value = active_theme.bg;
     document.getElementById("pick_text").value = active_theme.text;
     document.getElementById("pick_card").value = active_theme.card;
     document.getElementById("pick_accent").value = active_theme.accent;
 };
-
-// ── Render Theme Info Panel ────────────────────────────
 
 const render_theme_info = () => {
     const grid = document.getElementById("theme_info_grid");
@@ -90,8 +81,6 @@ const render_theme_info = () => {
     });
 };
 
-// ── Render Preset Buttons ──────────────────────────────
-
 const render_presets = () => {
     const grid = document.getElementById("preset_grid");
     grid.innerHTML = "";
@@ -119,8 +108,6 @@ const highlight_active_preset = () => {
     const active_btn = document.getElementById(`preset_${active_theme.name}`);
     if (active_btn) active_btn.classList.add("preset_active");
 };
-
-// ── Init ───────────────────────────────────────────────
 
 document.addEventListener("DOMContentLoaded", () => {
     render_presets();

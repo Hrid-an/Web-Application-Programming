@@ -21,8 +21,6 @@ body {
     padding: 30px;
 }
 
-/* ── Header ── */
-
 .header {
     display: flex;
     justify-content: space-between;
@@ -41,8 +39,6 @@ body {
     font-size: 14px;
     font-weight: 600;
 }
-
-/* ── Input Section ── */
 
 .input_section {
     display: flex;
@@ -73,8 +69,6 @@ body {
     opacity: 0.85;
 }
 
-/* ── Error ── */
-
 .error_msg {
     display: none;
     background-color: #ffe0e0;
@@ -83,8 +77,6 @@ body {
     border-radius: 10px;
     font-size: 14px;
 }
-
-/* ── Filter Buttons ── */
 
 .filter_buttons {
     display: flex;
@@ -112,8 +104,6 @@ body {
     opacity: 0.8;
 }
 
-/* ── Task List ── */
-
 #task_list {
     list-style: none;
     display: flex;
@@ -129,8 +119,6 @@ body {
     text-align: center;
     padding: 16px 0;
 }
-
-/* ── Task Item ── */
 
 .task_item {
     display: flex;

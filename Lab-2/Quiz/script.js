@@ -80,9 +80,6 @@ const render_question = () => {
     document.getElementById("question_text").textContent = q.question;
     document.getElementById("next_button").classList.add("hidden");
 
-    const progress = ((current_index) / total) * 100;
-    document.getElementById("progress_bar").style.width = progress + "%";
-
     const options_list = document.getElementById("options_list");
     options_list.innerHTML = "";
 
@@ -145,13 +142,12 @@ const show_results = () => {
     const percentage = Math.round((current_score / total) * 100);
 
     document.getElementById("final_score").textContent = `${current_score} / ${total}`;
-    document.getElementById("progress_bar").style.width = "100%";
 
     let msg = "";
-    if (percentage === 100) msg = "Perfect score! Outstanding! 🏆";
-    else if (percentage >= 70) msg = "Great job! Well done. 🎉";
-    else if (percentage >= 40) msg = "Not bad! Keep practicing. 📚";
-    else msg = "Keep trying! You'll get there. 💪";
+    if (percentage === 100) msg = "Perfect score! Outstanding!";
+    else if (percentage >= 70) msg = "Great job! Well done.";
+    else if (percentage >= 40) msg = "Not bad! Keep practicing.";
+    else msg = "Keep trying! You'll get there.";
 
     document.getElementById("result_msg").textContent = msg;
 
