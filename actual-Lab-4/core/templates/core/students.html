@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h2>Students</h2>
+<a href="/students/create/" class="btn btn-primary">Add Student</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Age</th>
+            <th>Teacher</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.course }}</td>
+            <td>{{ student.age }}</td>
+            <td>{{ student.teacher.name|default:"No Teacher" }}</td>
+            <td>
+                <a href="/students/edit/{{ student.id }}/" class="btn btn-warning">Edit</a>
+                <a href="/students/delete/{{ student.id }}/" class="btn btn-danger"
+                    onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No students found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h2>{% if student %}Edit{% else %}Add{% endif %} Student</h2>
+<form method="POST">
+    {% csrf_token %}
+    <label>Name:</label>
+    <input type="text" name="name" value="{{ student.name|default:'' }}" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" value="{{ student.email|default:'' }}" required>
+
+    <label>Course:</label>
+    <input type="text" name="course" value="{{ student.course|default:'' }}" required>
+
+    <label>Age:</label>
+    <input type="number" name="age" value="{{ student.age|default:'' }}" required>
+
+    <label>Teacher:</label>
+    <select name="teacher">
+        <option value="">None</option>
+        {% for teacher in teachers %}
+        <option value="{{ teacher.id }}" 
+        {% if student and student.teacher and student.teacher.id == teacher.id %} 
+            selected 
+        {% endif %}>
+            {{ teacher.name }}
+        </option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Save</button>
+    <a href="/students/" class="btn">Cancel</a>
+</form>
+{% endblock %}

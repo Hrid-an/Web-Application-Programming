@@ -1,0 +1,16 @@
+# The vitual environment .env/ directory
+.env/
+
+# All .sqlite3 files
+*.sqlite3
+
+# Python bytecode files
+*.pyc
+
+# IDE configurations (e.g., VSCode, PyCharm)
+.vscode/
+.idea/
+
+# system files (e.g., macOS, Windows)
+.DS_Store
+Thumbs.db

@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h2>Dashboard</h2>
+<div class="stats">
+    <div class="stat-card">
+        <h3>Total Teachers</h3>
+        <div class="number">{{ total_teachers }}</div>
+    </div>
+    <div class="stat-card">
+        <h3>Total Students</h3>
+        <div class="number">{{ total_students }}</div>
+    </div>
+</div>
+<div style="margin-top: 30px;">
+    <a href="/teachers/" class="btn btn-primary">Manage Teachers</a>
+    <a href="/students/" class="btn btn-primary">Manage Students</a>
+</div>
+{% endblock %}

@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-20(i*das+z8#(hh$c!!%z7yv44-)t52d+$g0ewpdn%3mlb^(7s'
+SECRET_KEY = 'django-insecure-zxb@8y003r(*lt65o$3)7&r27y_=mwhj=ku!i&g1ne8ty&s_+-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # Custom Apps
+    'accounts.apps.AccountsConfig',
+    'books.apps.BooksConfig',
+    'reviews.apps.ReviewsConfig',
+    'library.apps.LibraryConfig',
+    'common.apps.CommonConfig',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +61,7 @@ ROOT_URLCONF = 'BookBank.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/"templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h2>{% if teacher %}Edit{% else %}Add{% endif %} Teacher</h2>
+<form method="POST">
+    {% csrf_token %}
+    <label>Name:</label>
+    <input type="text" name="name" value="{{ teacher.name|default:'' }}" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" value="{{ teacher.email|default:'' }}" required>
+
+    <label>Subject:</label>
+    <input type="text" name="subject" value="{{ teacher.subject|default:'' }}" required>
+
+    <label>Phone:</label>
+    <input type="text" name="phone" value="{{ teacher.phone|default:'' }}" required>
+
+    <button type="submit">Save</button>
+    <a href="/teachers/" class="btn">Cancel</a>
+</form>
+{% endblock %}
