@@ -1,120 +1,83 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { useState, useEffect } from 'react'
+import Dashboard from './components/Dashboard'
+import ProductList from './components/ProductList'
+import ProductForm from './components/ProductForm'
+import { fetchProducts, fetchStats, createProduct, updateProduct, deleteProduct, updateStock } from './services/api'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [products, setProducts] = useState([])
+  const [stats, setStats] = useState({})
+  const [showForm, setShowForm] = useState(false)
+  const [editingProduct, setEditingProduct] = useState(null)
+
+  useEffect(() => {
+    loadData()
+  }, [])
+
+  const loadData = async () => {
+    const productsData = await fetchProducts()
+    const statsData = await fetchStats()
+    setProducts(productsData)
+    setStats(statsData)
+  }
+
+  const handleSaveProduct = async (formData) => {
+    if (editingProduct) {
+      await updateProduct(editingProduct.id, formData)
+    } else {
+      await createProduct(formData)
+    }
+    loadData()
+    setShowForm(false)
+    setEditingProduct(null)
+  }
+
+  const handleDeleteProduct = async (id) => {
+    if (window.confirm('Delete this product?')) {
+      await deleteProduct(id)
+      loadData()
+    }
+  }
+
+  const handleEditProduct = (product) => {
+    setEditingProduct(product)
+    setShowForm(true)
+  }
+
+  const handleStockUpdate = async (id, change) => {
+    await updateStock(id, change)
+    loadData()
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div>
+      <h1>Stock Management System</h1>
 
-      <div className="ticks"></div>
+      <div>
+        <button onClick={() => setShowForm(true)}>Add Product</button>
+        <button onClick={loadData}>Refresh</button>
+      </div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <Dashboard stats={stats} />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      {showForm && (
+        <ProductForm
+          product={editingProduct}
+          onSave={handleSaveProduct}
+          onCancel={() => {
+            setShowForm(false)
+            setEditingProduct(null)
+          }}
+        />
+      )}
+
+      <ProductList
+        products={products}
+        onEdit={handleEditProduct}
+        onDelete={handleDeleteProduct}
+        onStockUpdate={handleStockUpdate}
+      />
+    </div>
   )
 }
 
